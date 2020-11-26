@@ -2,13 +2,13 @@ package Model;
 
 import java.util.*;
 
-public class Game {
+public class Driver {
     private boolean endPositionFoundIndicator = false;
     private int operationCounter = 0;
     private int[][] usedPositions;
 
     // Constructor
-    public Game(){
+    public Driver(){
 
     }
 
