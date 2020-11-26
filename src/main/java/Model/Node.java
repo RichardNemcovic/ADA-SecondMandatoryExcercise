@@ -5,7 +5,6 @@ import java.util.*;
 public class Node {
     private Position position;
     private ArrayList<Node> children;
-    private ArrayList<Position> positions;
     private int numberOfChildren;
     private int depth;
 
@@ -87,10 +86,6 @@ public class Node {
         return numberOfChildren;
     }
 
-    public ArrayList<Position> getPositions() {
-        return positions;
-    }
-
     public int getDepth() {
         return depth;
     }
@@ -106,10 +101,6 @@ public class Node {
 
     public void setNumberOfChildren(int numberOfChildren) {
         this.numberOfChildren = numberOfChildren;
-    }
-
-    public void setPositions(ArrayList<Position> positions) {
-        this.positions = positions;
     }
 
     public void setDepth(int depth) {

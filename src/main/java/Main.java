@@ -57,6 +57,8 @@ public class Main {
 //            System.out.println(position.getY() + "]");
 //
         Game game = new Game();
-        game.MinimumSteps(100,100,0,0,99,99);
+        game.MinimumSteps(2000,2000,0,0,1999,1999);
+        //game.MinimumSteps(1000,1000,0,0,999,999);
+        //game.MinimumSteps(10,10,0,0,9,9);
     }
 }
