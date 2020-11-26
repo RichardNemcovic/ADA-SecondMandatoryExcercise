@@ -6,17 +6,6 @@ public class Node {
     private Position position;
     private ArrayList<Node> children;
     private int numberOfChildren;
-    private int depth;
-
-    protected boolean addChild(Node node){
-        if (node != null){
-            ArrayList<Node> list = getChildren();
-            list.add(node);
-            node.setChildren(list);
-            return true;
-        }
-        return false;
-    }
 
     public ArrayList<Position> calculatePositions(int BoardHeight, int BoardWidth){
         int x = this.position.getX();
@@ -86,10 +75,6 @@ public class Node {
         return numberOfChildren;
     }
 
-    public int getDepth() {
-        return depth;
-    }
-
     // Setters
     public void setPosition(Position position) {
         this.position = position;
@@ -101,9 +86,5 @@ public class Node {
 
     public void setNumberOfChildren(int numberOfChildren) {
         this.numberOfChildren = numberOfChildren;
-    }
-
-    public void setDepth(int depth) {
-        this.depth = depth;
     }
 }
