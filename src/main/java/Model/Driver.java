@@ -22,6 +22,9 @@ public class Driver {
                 (KnightEndYPosition < 0) || (KnightStartYPosition < 0)){
             throw new IllegalArgumentException("Some of positions negative");
         }
+        if (KnightStartXPosition == KnightEndXPosition && KnightStartYPosition == KnightEndYPosition){
+            return 0;
+        }
         this.usedPositions = new int[BoardHeight][BoardWidth];
         for (int i = 0; i < BoardHeight; i++){
             for (int j = 0; j < BoardWidth; j++){
@@ -34,24 +37,24 @@ public class Driver {
         Tree tree = new Tree(root);
         Position endPosition = new Position(KnightEndXPosition, KnightEndYPosition);
         fillTree(BoardHeight, BoardWidth, tree, endPosition);
-        System.out.println("----------------");
-        System.out.println("Number of total operations is " + operationCounter);
+        //System.out.println("----------------");
+        //System.out.println("Number of total operations is " + operationCounter);
         //int nodesCount = nodesCount(tree);
-        return 0;
+        return this.operationCounter;
     }
 
     protected int fillTree(int BoardHeight, int BoardWidth, Tree tree, Position endPosition){
         ArrayList<Node> arrayList = new ArrayList<Node>();
         arrayList.add(tree.getRoot());
         fillNode(BoardHeight, BoardWidth, arrayList, endPosition);
-        printChessBoard(BoardHeight, BoardWidth);
+        //printChessBoard(BoardHeight, BoardWidth);
         return -1;
     }
 
     protected void fillNode(int BoardHeight, int BoardWidth, ArrayList<Node> nodes, Position endPosition) {
-        if (!endPositionFoundIndicator){
-            operationCounter++;
-            System.out.println("Operation No. " + operationCounter);
+        if (!this.endPositionFoundIndicator){
+            this.operationCounter++;
+            //System.out.println("Operation No. " + operationCounter);
             for (Node node : nodes) {
                 ArrayList<Position> positions = node.calculatePositions(BoardHeight, BoardWidth);
 
@@ -61,7 +64,7 @@ public class Driver {
                         node.getChildren().add(newChild);
                         this.usedPositions[position.getX()][position.getY()] = 1;
                         if ((position.getX() == endPosition.getX()) && (position.getY() == endPosition.getY())) {
-                            endPositionFoundIndicator = true;
+                            this.endPositionFoundIndicator = true;
                         }
                     }
                 }
